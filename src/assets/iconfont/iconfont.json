@@ -1,0 +1,58 @@
+{
+  "id": "4361285",
+  "name": "天穹-竞赛平台-后台",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "38558682",
+      "name": "返回中台-",
+      "font_class": "fanhuizhongtai-01",
+      "unicode": "e741",
+      "unicode_decimal": 59201
+    },
+    {
+      "icon_id": "38472789",
+      "name": "一键部署",
+      "font_class": "yijianbushu",
+      "unicode": "e7f0",
+      "unicode_decimal": 59376
+    },
+    {
+      "icon_id": "38449197",
+      "name": "用户管理",
+      "font_class": "yonghuguanli",
+      "unicode": "e7eb",
+      "unicode_decimal": 59371
+    },
+    {
+      "icon_id": "38449196",
+      "name": "赛队管理",
+      "font_class": "saiduiguanli",
+      "unicode": "e7ec",
+      "unicode_decimal": 59372
+    },
+    {
+      "icon_id": "38449195",
+      "name": "赛题管理",
+      "font_class": "saitiguanli",
+      "unicode": "e7ed",
+      "unicode_decimal": 59373
+    },
+    {
+      "icon_id": "38449194",
+      "name": "赛事运维",
+      "font_class": "saishiyunwei",
+      "unicode": "e7ee",
+      "unicode_decimal": 59374
+    },
+    {
+      "icon_id": "38449193",
+      "name": "赛事管理",
+      "font_class": "saishiguanli",
+      "unicode": "e7ef",
+      "unicode_decimal": 59375
+    }
+  ]
+}

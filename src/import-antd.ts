@@ -1,0 +1,86 @@
+import {
+  ConfigProvider,
+  Menu,
+  Table,
+  Steps,
+  Form,
+  Input,
+  Select,
+  Radio,
+  Button,
+  Dropdown,
+  Modal,
+  Avatar,
+  Breadcrumb,
+  Checkbox,
+  Tabs,
+  Tag,
+  Tooltip,
+  Carousel,
+  Cascader,
+  Popconfirm,
+  Upload,
+  Row,
+  Col,
+  Progress,
+  Pagination,
+  Spin,
+  Layout,
+  Divider,
+  Switch,
+  Tree,
+  Empty,
+  Space,
+  Alert,
+  DatePicker,
+  Drawer,
+  InputNumber,
+} from 'ant-design-vue';
+import 'ant-design-vue/dist/reset.css'; // 重置样式文件
+
+const importAntd = (app: any): void => {
+  app
+    .use(ConfigProvider)
+    .use(Menu)
+    .use(Table)
+    .use(Form)
+    .use(Row)
+    .use(Col)
+    .use(Input)
+    .use(Select)
+    .use(Radio)
+    .use(Button)
+    .use(Steps)
+    .use(Dropdown)
+    .use(Modal)
+    .use(Avatar)
+    .use(Breadcrumb)
+    .use(Checkbox)
+    .use(Tabs)
+    .use(Tag)
+    .use(Steps)
+    .use(Carousel)
+    .use(Tooltip)
+    .use(Steps)
+    .use(Steps)
+    .use(Carousel)
+    .use(Cascader)
+    .use(Upload)
+    .use(Steps)
+    .use(Popconfirm)
+    .use(Progress)
+    .use(Pagination)
+    .use(Spin)
+    .use(Layout)
+    .use(Divider)
+    .use(Switch)
+    .use(Tree)
+    .use(Space)
+    .use(Alert)
+    .use(DatePicker)
+    .use(Drawer)
+    .use(InputNumber)
+    .use(Empty);
+};
+
+export default importAntd;
