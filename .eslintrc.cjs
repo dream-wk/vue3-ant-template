@@ -19,6 +19,7 @@ module.exports = {
     extraFileExtensions: ['.ts', '.tsx', '.js', '.jsx', '.vue'], // '.ts', '.tsx', '.js', '.jsx' 这里可以不用这些的
   },
   rules: {
+    'vue/multi-word-component-names': 'off',
     'no-undef': 'off',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-explicit-any': 'off',

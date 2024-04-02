@@ -4,6 +4,7 @@ import router from '@/router';
 import { setupStore } from '@/store';
 import importAntd from './import-antd';
 import './assets/iconfont/iconfont.css';
+import '@/styles/index.less';
 
 const app = createApp(App);
 

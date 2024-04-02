@@ -1,12 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import { constantRoutes, asyncRoutes } from './menus';
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: () => import('@/components/HelloWorld.vue'),
-  },
-];
+const routes: Array<RouteRecordRaw> = [...constantRoutes, ...asyncRoutes];
 
 const router = createRouter({
   history: createWebHistory(),

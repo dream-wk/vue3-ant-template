@@ -1,10 +1,13 @@
 import { defineStore } from 'pinia';
 import { store } from '@/store';
+import { usePermissionStore } from './static-router';
 
 export const useUserStore = defineStore('user', {
-  state: () => ({
+  state: (): any => ({
     name: 'dream_wk',
     age: 18,
+    token: undefined,
+    userInfo: {},
   }),
   getters: {
     getPerson: (state) => {
@@ -25,6 +28,28 @@ export const useUserStore = defineStore('user', {
         }, 2000);
       });
     },
+    setToken(info: string | undefined) {
+      this.token = info ? info : ''; // for null or undefined value
+    },
+    async getUserInfoAndRouter() {
+      // todo 去获取用户信息
+      // await getUserInfo
+      const respondInfo = {
+        name: 'wk',
+        avatar: '',
+        role: {
+          permissionList: ['test1'],
+          permissions: [],
+        },
+      };
+      this.userInfo = respondInfo;
+      this.name = respondInfo.name;
+      const permissionStore = usePermissionStore();
+      permissionStore.generateRoutes(respondInfo);
+    },
+  },
+  persist: {
+    paths: ['token'],
   },
 });
 

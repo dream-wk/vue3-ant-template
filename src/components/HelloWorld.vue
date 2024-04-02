@@ -1,16 +1,18 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useUserStore } from '@/store/modules/user';
 
 defineProps<{ msg: string }>();
 
 var count = ref(0);
-for (var i = 1; i < 10; i++) {
-  console.log(i);
-}
 const userStore = useUserStore();
 const handleAsyncChange = () => {
   userStore.updateName('wk');
+};
+const router = useRouter();
+const handleToDetail = () => {
+  router.push({ path: '/test4' });
 };
 </script>
 
@@ -27,6 +29,8 @@ const handleAsyncChange = () => {
     <h1>{{ msg }}</h1>
     <div>userStore:{{ userStore.name }}</div>
     <button type="button" @click="handleAsyncChange">异步改变state</button>
+
+    <button type="button" @click="handleToDetail">详情页跳转测试</button>
 
     <div class="card">
       <button class="read-the-docs" type="button" @click="count++">count is {{ count }}</button>
