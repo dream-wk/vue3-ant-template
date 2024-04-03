@@ -48,7 +48,7 @@ const handleSubmit = async () => {
   // 登录成功后记录token
   userStore.setToken(loginFormModel.value);
   router.push({
-    path: '/home',
+    path: '/',
   });
 };
 </script>

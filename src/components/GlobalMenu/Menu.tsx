@@ -2,13 +2,15 @@ import { defineComponent, reactive, ref, onMounted, watch } from 'vue';
 import { asyncRoutes } from '@/router/menus';
 import { useRouter, useRoute } from 'vue-router';
 import styles from './index.module.less';
+import { usePermissionStore } from '@/store/modules/static-router';
 
 export default defineComponent({
   // eslint-disable-next-line vue/no-reserved-component-names
   name: 'Menu',
   setup() {
     function getMenus(): any[] {
-      const menus: any = asyncRoutes.find((item) => item.path === '/home');
+      const permissionStore = usePermissionStore();
+      const menus: any = permissionStore.routers.find((item) => item.path === '/');
       return menus.children;
     }
     const menus = reactive(getMenus());

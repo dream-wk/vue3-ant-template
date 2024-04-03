@@ -7,8 +7,8 @@ import { BasicLayout, BlankLayout } from '@/layout';
  */
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
-    path: '/home',
-    name: 'Home',
+    path: '/',
+    name: 'index',
     component: BasicLayout,
     children: [
       {
@@ -17,28 +17,28 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
         component: BlankLayout,
         meta: {
           title: '一级',
-          permission: [],
+          permission: ['test1'],
           notClickable: true,
           redirectToChild: true,
         },
         children: [
           {
-            path: '/test2',
-            name: 'test2',
-            redirect: '/test3',
-            meta: { title: 'test2', hideChildrenInMenu: true },
+            path: '/test1-1',
+            name: 'test1-1',
+            redirect: '/test1-1List',
+            meta: { title: 'test1-1', hideChildrenInMenu: true },
             component: BlankLayout,
             children: [
               {
-                path: '/test3',
-                name: 'test3',
+                path: '/test1-1List',
+                name: 'test1-1List',
                 meta: { title: 'test3', hideInMenu: true },
                 component: () => import(/* webpackChunkName: "test3" */ '@/components/HelloWorld.vue'),
               },
               {
-                path: '/test4',
-                name: 'test4',
-                meta: { title: 'test4', hideInMenu: true },
+                path: '/test1-1Detail',
+                name: 'test1-1Detail',
+                meta: { title: 'test1-1Detail', hideInMenu: true },
                 component: () => import(/* webpackChunkName: "test4" */ '@/components/test4.vue'),
               },
             ],
@@ -66,6 +66,27 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
             meta: { title: '个人信息' },
           },
         ],
+      },
+    ],
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    meta: {
+      title: 'PageNotFound',
+      hideInMenu: true,
+      hideInTabs: true,
+    },
+    children: [
+      {
+        path: '/:pathMatch(.*)*',
+        name: '404',
+        component: () => import('@/views/error/404.vue'),
+        meta: {
+          title: 'PageNotFound',
+          hideBreadcrumb: true,
+          hideMenu: true,
+        },
       },
     ],
   },

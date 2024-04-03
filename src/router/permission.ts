@@ -1,35 +1,38 @@
-import router from './index';
 import { RouteLocationNormalized } from 'vue-router';
 import { useUserStore } from '@/store/modules/user';
 import { usePermissionStore } from '@/store/modules/static-router';
 
-const allowList = ['login', 'register', 'registerResult']; // no redirect allowList
+export const whiteNameList = ['Login', 'register', 'registerResult']; // no redirect allowList
 const loginRoutePath = '/login';
-const defaultRoutePath = '/dashboard/workplace';
+const defaultRoutePath = '/personalInfo'; // 一登陆 然后进入系统默认去的地方， todo 后续自己去找第一个有权限的页面
 
-router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next) => {
-  const userStore = useUserStore();
-
-  if (userStore.token) {
-    if (to.path === loginRoutePath) {
-      next({ path: defaultRoutePath });
-    } else {
-      if (!userStore.userInfo.permissionList || userStore.userInfo.permissionList.length === 0) {
-        userStore.getUserInfoAndRouter();
-        const permissionStore = usePermissionStore();
-        permissionStore.addRouters.forEach((r) => {
-          router.addRoute(r);
-        });
+export function createRouterGuards(router: any) {
+  router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: any) => {
+    const userStore = useUserStore();
+    if (userStore.token) {
+      if (to.path === loginRoutePath) {
+        next({ path: defaultRoutePath });
       } else {
+        console.log(userStore.userInfo);
+
+        if (!userStore.userInfo.role || userStore.userInfo?.role?.permissionList?.length === 0) {
+          userStore.getUserInfoAndRouter();
+          const permissionStore = usePermissionStore();
+          permissionStore.addRouters.forEach((r) => {
+            router.addRoute(r);
+          });
+          next({ ...to });
+        } else {
+          next();
+        }
+      }
+    } else {
+      if (whiteNameList.includes(to.name as any)) {
+        // 在免登录名单，直接进入
         next();
+      } else {
+        next({ path: loginRoutePath });
       }
     }
-  } else {
-    if (allowList.includes(to.name as any)) {
-      // 在免登录名单，直接进入
-      next();
-    } else {
-      next({ path: loginRoutePath, query: { redirect: to.fullPath } });
-    }
-  }
-});
+  });
+}

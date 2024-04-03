@@ -50,6 +50,7 @@ export const usePermissionStore = defineStore('permission', {
       const { role } = data;
       const routerMap = cloneDeep(asyncRoutes);
       const accessedRouters = filterAsyncRouter(routerMap, role);
+      this.addRouters = accessedRouters;
       this.routers = constantRoutes.concat(accessedRouters);
     },
   },
