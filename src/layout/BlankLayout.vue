@@ -1,10 +1,27 @@
 <template>
-  <router-view />
+  <router-view>
+    <template #default="{ Component, route }">
+      {{ route.meta.keepAlive }}
+      <keep-alive v-if="route.meta.keepAlive">
+        <component :is="Component" :key="route.fullPath" />
+      </keep-alive>
+      <component v-else :is="Component" :key="route.fullPath" />
+    </template>
+  </router-view>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: 'BlankLayout',
+  setup() {
+    const route = useRoute();
+    const count = ref(1);
+    console.log(88888, route);
+    return {
+      count,
+    };
+  },
 });
 </script>

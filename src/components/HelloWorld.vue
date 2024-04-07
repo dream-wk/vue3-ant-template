@@ -12,7 +12,7 @@ const handleAsyncChange = () => {
 };
 const router = useRouter();
 const handleToDetail = () => {
-  router.push({ path: '/test4' });
+  router.push({ path: '/test1-1Detail' });
 };
 </script>
 
