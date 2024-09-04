@@ -22,7 +22,6 @@ export default defineComponent({
 
     function handleMenuClick(menu: any) {
       const { key } = menu;
-      console.log(key);
       if (!selectedKeys.value.includes(key)) {
         // dispatch('clearBreadcrumb');
         router.push({ path: key });

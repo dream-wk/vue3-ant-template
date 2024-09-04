@@ -8,13 +8,13 @@ import { BasicLayout, BlankLayout } from '@/layout';
 export const asyncRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'index',
+    name: 'home',
     component: BasicLayout,
     children: [
       {
         path: '/test1',
         name: 'test1',
-        component: BlankLayout,
+        // component: BlankLayout,
         meta: {
           title: '一级test1',
           permission: ['test1'],
@@ -33,13 +33,13 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
                 path: '/test1-1List',
                 name: 'test1-1List',
                 meta: { title: 'test3', hideInMenu: true, keepAlive: true },
-                component: () => import(/* webpackChunkName: "test3" */ '@/views/test1/index.vue'),
+                component: () => import('@/views/test1/index.vue'),
               },
               {
                 path: '/test1-1Detail',
                 name: 'test1-1Detail',
-                meta: { title: 'test1-1Detail', keepAlive: false },
-                component: () => import(/* webpackChunkName: "test4" */ '@/views/test1/detail.vue'),
+                meta: { title: 'test1-1Detail' },
+                component: () => import('@/views/test1/detail.vue'),
               },
             ],
           },
@@ -66,13 +66,13 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
                 path: '/test2-1List',
                 name: 'test2-1List',
                 meta: { title: 'test3', hideInMenu: true },
-                component: () => import(/* webpackChunkName: "test3" */ '@/views/test2/index.vue'),
+                component: () => import('@/views/test2/index.vue'),
               },
               {
                 path: '/test2-1Detail',
                 name: 'test2-1Detail',
                 meta: { title: 'test2-1Detail', hideInMenu: true },
-                component: () => import(/* webpackChunkName: "test4" */ '@/views/test2/detail.vue'),
+                component: () => import('@/views/test2/detail.vue'),
               },
             ],
           },
@@ -94,7 +94,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
           {
             path: '/personalInfo',
             name: 'PersonalInfo',
-            component: () => import(/* webpackChunkName: "personal-info" */ '@/components/test4.vue'),
+            component: () => import('@/views/test3/index.vue'),
             meta: { title: '个人信息' },
           },
         ],
@@ -131,6 +131,6 @@ export const constantRoutes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "login" */ '@/views/login/index.vue'),
+    component: () => import('@/views/login/index.vue'),
   },
 ];

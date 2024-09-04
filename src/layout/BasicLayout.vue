@@ -6,7 +6,7 @@
         <GlobalMenu />
       </a-layout-sider>
       <a-layout-content class="layout-content">
-        <!-- <breadcrumb class="breadcrumb" /> -->
+        <breadcrumb class="breadcrumb" />
         <router-view class="route-view" />
       </a-layout-content>
     </a-layout>
@@ -14,6 +14,7 @@
 </template>
 <script setup lang="ts">
 import GlobalMenu from '@/components/GlobalMenu/Menu';
+import breadcrumb from './Breadcrumb.vue';
 </script>
 <style lang="less" scoped>
 .layout-content {

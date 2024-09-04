@@ -3,8 +3,6 @@ import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import { useUserStore } from '@/store/modules/user';
 
-defineProps<{ msg: string }>();
-
 var count = ref(0);
 const userStore = useUserStore();
 const handleAsyncChange = () => {
@@ -12,7 +10,7 @@ const handleAsyncChange = () => {
 };
 const router = useRouter();
 const handleToDetail = () => {
-  router.push({ path: '/test1-1Detail' });
+  router.push({ path: '/test1-1Detail', query: { aaa: 123 } });
 };
 </script>
 
@@ -26,7 +24,6 @@ const handleToDetail = () => {
         <img src="@/assets/vue.svg" class="logo vue" alt="Vue logo" />
       </a>
     </div>
-    <h1>{{ msg }}</h1>
     <div>userStore:{{ userStore.name }}</div>
     <button type="button" @click="handleAsyncChange">异步改变state</button>
 

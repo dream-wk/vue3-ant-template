@@ -1,7 +1,7 @@
 <template>
   <router-view>
     <template #default="{ Component, route }">
-      {{ route.meta.keepAlive }}
+      keepalive： {{ route.meta.keepAlive }}
       <keep-alive v-if="route.meta.keepAlive">
         <component :is="Component" :key="route.fullPath" />
       </keep-alive>
@@ -11,14 +11,13 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { useRoute } from 'vue-router';
+// import { useRoute } from 'vue-router';
 
 export default defineComponent({
   name: 'BlankLayout',
   setup() {
-    const route = useRoute();
+    // const route = useRoute();
     const count = ref(1);
-    console.log(88888, route);
     return {
       count,
     };
