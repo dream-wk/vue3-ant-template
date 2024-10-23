@@ -26,7 +26,7 @@ export const asyncRoutes: Array<RouteRecordRaw> = [
             path: '/test1-1',
             name: 'test1-1',
             redirect: '/test1-1List',
-            meta: { title: 'test1-1', hideChildrenInMenu: true, keepAlive: true },
+            meta: { title: 'test1-1', hideChildrenInMenu: true },
             component: BlankLayout,
             children: [
               {
