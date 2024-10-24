@@ -6,15 +6,19 @@
         <GlobalMenu />
       </a-layout-sider>
       <a-layout-content class="layout-content">
-        <breadcrumb class="breadcrumb" />
-        <router-view class="route-view" />
+        <Breadcrumb class="breadcrumb" />
+        <div class="route-view">
+          <KeepAliveRouterView />
+        </div>
       </a-layout-content>
     </a-layout>
   </a-layout>
 </template>
 <script setup lang="ts">
 import GlobalMenu from '@/components/GlobalMenu/Menu';
-import breadcrumb from './Breadcrumb.vue';
+import Breadcrumb from '@/components/Breadcrumb/index.vue';
+import KeepAliveRouterView from './KeepAliveRouterView.vue';
+// import breadcrumb from './Breadcrumb.vue';
 </script>
 <style lang="less" scoped>
 .layout-content {

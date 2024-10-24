@@ -1,6 +1,7 @@
 import { RouteLocationNormalized } from 'vue-router';
 import { useUserStore } from '@/store/modules/user';
 import { usePermissionStore } from '@/store/modules/static-router';
+import { useKeepAliveStore } from '@/store/modules/keepAlive';
 
 export const whiteNameList = ['Login'];
 const loginRoutePath = '/login';
@@ -9,6 +10,7 @@ const defaultRoutePath = '/personalInfo'; // 一登陆 然后进入系统默认�
 export function createRouterGuards(router: any) {
   router.beforeEach(async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: any) => {
     const userStore = useUserStore();
+    useKeepAliveStore().setCache(to, from);
     if (userStore.token) {
       // todo 后续自己去找第一个有权限的页面
       if (to.path === loginRoutePath) {

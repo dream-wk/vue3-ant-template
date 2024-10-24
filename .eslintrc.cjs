@@ -23,5 +23,6 @@ module.exports = {
     'no-undef': 'off',
     '@typescript-eslint/no-empty-function': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
+    'no-debugger': 'off',
   },
 };

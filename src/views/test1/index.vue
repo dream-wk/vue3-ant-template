@@ -1,3 +1,9 @@
+<script lang="ts">
+export default {
+  name: 'test1-1List',
+};
+</script>
+
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
@@ -10,7 +16,7 @@ const handleAsyncChange = () => {
 };
 const router = useRouter();
 const handleToDetail = () => {
-  router.push({ path: '/test1-1Detail', query: { aaa: 123 } });
+  router.push({ path: '/test1-Detail', query: { aaa: 123 } });
 };
 </script>
 

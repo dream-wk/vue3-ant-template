@@ -28,7 +28,7 @@ watch(
     }
     const result: any[] = [];
     const len = matched.length;
-    console.log(matched);
+    console.log(123456, fullPath);
 
     matched.forEach((item: any, index: number) => {
       // 由于部分页面会在beforeEnter时变更meta信息，如编辑页面会根据id变更title，因此最后一个路由不从matched中获取
